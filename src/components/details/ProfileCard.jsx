@@ -44,7 +44,7 @@ const ProfileCard = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-row overflow-x-auto sm:w-[20rem] md:w-full lg:w-full outline-none lg:gap-16 sm:gap-8 md:gap-16 font-semibold text-blue-900 lg:ml-8 ">
+      <div className="flex flex-row overflow-x-auto sm:w-[22rem] md:w-full lg:w-full outline-none lg:gap-16 sm:gap-8 md:gap-16 font-semibold text-blue-900 lg:ml-8 ">
         <button className="text-green-700 border-b-2 border-green-700 px-4 py-2">
           General Details
         </button>

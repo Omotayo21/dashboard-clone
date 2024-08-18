@@ -18,7 +18,7 @@ const Users: React.FC = () => {
 
   return (
     <>
-      <div className=" h-[calc(100vh-0.75rem)] block overflow-auto mt-4 outline-none">
+      <div className=" lg:h-[calc(100vh-0.75rem)] block overflow-auto mt-4 outline-none">
         <h1 className="text-2xl  font-bold text-[#213f7d] my-8">Users</h1>
         <div className="flex lg:flex-row sm:flex-col md:flex-col gap-2.5 mb-6">
           <motion.div

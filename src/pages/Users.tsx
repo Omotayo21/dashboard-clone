@@ -11,7 +11,7 @@ const Users: React.FC = () => {
 
   useEffect(() => {
     
-    fetch("https://run.mocky.io/v3/d68458fa-e77c-4168-8da1-9c79832cb948")
+    fetch("https://run.mocki.io/v3/d68458fa-e77c-4168-8da1-9c79832cb948")
       .then((response) => response.json())
       .then((data) => setData(data));
   }, []);

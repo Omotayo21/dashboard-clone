@@ -8,19 +8,30 @@ const Users: React.FC = () => {
 
   const {searchTerm} = useOutletContext<{searchTerm: string}>()
    const [data, setData] = useState([]);
- const apiUrl = 'https://api.jsonbin.io/v3/b/67019006acd3cb34a891cac1'
-        const apiKey = '$2a$10$Hz9vTESkcpmqRFawksCfYenkkhs.wLNWsIihEBXR2EHfFNa95Pmha'; // Replace with your actual API key
+ const apiUrl = 'https://api.jsonbin.io/v3/b/67019006acd3cb34a891cac1';
+const apiKey = '$2a$10$Hz9vTESkcpmqRFawksCfYenkkhs.wLNWsIihEBXR2EHfFNa95Pmha'; // Ensure API key is not exposed in production
 
-  useEffect(() => {
-    
-    fetch(`${apiUrl}/latest`, {
-                headers: {
-                    'X-Master-Key': apiKey
-                }
-            })
-      .then((response) => response.json())
-      .then((data) => setData(data));
-  }, []);
+useEffect(() => {
+  fetch(`${apiUrl}/latest`, {
+    headers: {
+      'X-Master-Key': apiKey
+    }
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Adjust this if the structure of the returned data is different
+      setData(data.record); 
+    })
+    .catch((error) => {
+      console.error("There was an error with the fetch request:", error);
+    });
+}, []);
+
 
   return (
     <>

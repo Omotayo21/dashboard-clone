@@ -8,10 +8,16 @@ const Users: React.FC = () => {
 
   const {searchTerm} = useOutletContext<{searchTerm: string}>()
    const [data, setData] = useState([]);
+ const apiUrl = 'https://api.jsonbin.io/v3/b/67019006acd3cb34a891cac1'
+        const apiKey = '$2a$10$Hz9vTESkcpmqRFawksCfYenkkhs.wLNWsIihEBXR2EHfFNa95Pmha'; // Replace with your actual API key
 
   useEffect(() => {
     
-    fetch("https://run.mocki.io/v3/d68458fa-e77c-4168-8da1-9c79832cb948")
+    fetch(`${apiUrl}/latest`, {
+                headers: {
+                    'X-Master-Key': apiKey
+                }
+            })
       .then((response) => response.json())
       .then((data) => setData(data));
   }, []);
